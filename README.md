@@ -7,7 +7,10 @@ Este proyecto propone desarrollar un modelo MLP que clasifique automáticamente 
 
 ## Objetivos del proyecto
 1.- **Desarrollar un modelo MLP** capaz de clasificar imágenes de los tipos de tomates, y así poder tener una predicción mas acertada sobre que frutas están en mal estado y cuales no
+
+
 2. **Alcanzar un desempeño mínimo** de 80% de Accuracy y 0.75 de F1-Score en el conjunto de prueba, seria lo ideal para que el sistema funcione bien
+
 3. Analizar los errores del modelo e identificar las principales limitaciones del MLP en la clasificación de imágenes.
 
 ## Definicion de KPIs

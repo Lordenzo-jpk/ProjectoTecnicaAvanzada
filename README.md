@@ -22,8 +22,15 @@ Este proyecto propone desarrollar un modelo MLP que clasifique automáticamente 
 | Velocidad de respuesta | Tiempo de inferencia | < 1 seg | Debe funcionar en tiempo real |
 
 ## Fuentes de datos
-[Por desarrollar]
+El conjunto de datos utilizados para este proyecto se extrajo de la plataforma **Kaggle**, específicamente del dataset público **"PlantVillage"**. El cual originalmente el repositorio contiene miles de imágenes de hojas de diversos cultivos.
 
+Para cumplir con la variante propuesta en este proyecto y adaptarlo a la realidad agrícola de la región, se filtró el dataset original para extraer exclusivamente hojas de la especie Tomate (Solanum lycopersicum). Se seleccionaron 4 categorías específicas, conformando un total de miles de imágenes en formato RGB:
+
+1. Tomate Sano (Tomato_healthy)
+2. Mancha Bacteriana (Tomato_Bacterial_spot)
+3. Tizón Temprano (Tomato_Early_blight)
+4. Tizón Tardío (Tomato_Late_blight)
+ 
 ## Preparación y Análisis Exploratorio de Datos (EDA) (Descripcion de lo que se hara)
 [Por desarrollar]
 

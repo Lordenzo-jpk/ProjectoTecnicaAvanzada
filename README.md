@@ -32,7 +32,70 @@ Para cumplir con la variante propuesta en este proyecto y adaptarlo a la realida
 4. Tizón Tardío (Tomato_Late_blight)
  
 ## Preparación y Análisis Exploratorio de Datos (EDA) (Descripcion de lo que se hara)
-[Por desarrollar]
+### Descripción del dataset
+Se utilizó el dataset **PlantVillage**, que contiene imágenes de hojas de plantas clasificadas por tipo de cultivo y enfermedad. Para este proyecto se definió una **variante enfocada exclusivamente en el cultivo de tomate**, seleccionando 4 clases críticas:
+
+| Clase | Descripción | N° de imágenes |
+|-------|-------------|----------------|
+| Tomato_healthy | Hojas sanas | 1.591 |
+| Tomato_Bacterial_spot | Mancha bacteriana | 2.127 |
+| Tomato_Early_blight | Tizón temprano | 1.000 |
+| Tomato_Late_blight | Tizón tardío | 1.909 |
+| **Total** | | **6.627** |
+
+### Distribución de clases
+Se realizó un gráfico de barras para visualizar la distribución de imágenes por clase. Se observa que el dataset está **moderadamente balanceado**, aunque la clase *Early_blight* tiene aproximadamente la mitad de imágenes que *Bacterial_spot*. Esta diferencia no es lo suficientemente crítica como para requerir técnicas de balanceo, pero se tuvo en cuenta al interpretar las métricas por clase.
+
+### Calidad de los datos 
+- **Resolucion de la imagen:** Las imágenes del dataset original tienen diferentes tamaños, por lo que fue necesario redimensionarlas a 64x64 píxeles, para que todos esten en el mismo margen
+- **Formato:** Todas las imágenes están en formato RGB.
+
+### Preparación de los datos
+1. **Filtrado:** Se seleccionaron únicamente las 4 carpetas correspondientes al cultivo de tomate.
+2. **Redimensionamiento:** Todas las imágenes se ajustaron a 64x64 píxeles para reducir la carga computacional del MLP.
+3. **Normalización:** Los valores de píxeles se escalaron al rango [0, 1] dividiendo por 255, lo que facilita la convergencia del modelo.
+4. **División de datos:** Se utilizó una partición de 80% para entrenamiento y 20% para validación, con una semilla fija (seed=42) para garantizar reproducibilidad.
+5. **Codificación de etiquetas:** Se utilizó codificación one-hot (categorical) para las 4 clases.
+
 
 ## Metodología (CRISP-DM)
-[por desarrollar]
+El desarrollo del proyecto siguió las 6 fases de la metodología CRISP-DM:
+
+### 1. Comprensión del negocio
+Se identificó la problemática de los pequeños y medianos agricultores de la Región de Valparaíso, quienes enfrentan pérdidas económicas por la detección tardía de enfermedades en cultivos de tomate. Se definió como objetivo desarrollar un modelo MLP capaz de clasificar automáticamente 4 clases críticas (hoja sana, mancha bacteriana, tizón temprano y tizón tardío) a partir de fotografías de hojas.
+
+### 2. Comprensión de los datos
+Se utilizó el dataset PlantVillage, filtrando únicamente las 4 clases de tomate seleccionadas. Se realizó un EDA que incluyó:
+- Conteo de imágenes por clase (6.627 imágenes en total).
+- Visualización de la distribución de clases mediante gráfico de barras.
+- Identificación de desafíos: similitud visual entre enfermedades, fondos variables y desbalance leve.
+
+### 3. Preparación de los datos
+Se aplicaron las siguientes transformaciones:
+- **Filtrado:** Selección de las 4 carpetas de tomate.
+- **Redimensionamiento:** Imágenes ajustadas a 64x64 píxeles.
+- **Normalización:** Píxeles escalados al rango [0, 1] dividiendo por 255.
+- **Codificación:** Etiquetas en formato one-hot (categorical).
+- **División:** 80% entrenamiento y 20% validación, con semilla fija de seed= 12.
+
+### 4. Modelamiento 
+Se implementó un Perceptrón Multicapa (MLP) con la siguiente arquitectura:
+- **Capa de entrada:** Flatten de 64x64x3 = 12.288 neuronas.
+- **Capa oculta 1:** 256 neuronas con activación ReLU.
+- **Capa oculta 2:** 128 neuronas con activación ReLU.
+- **Capa de salida:** 4 neuronas con activación Softmax.
+- **Función de pérdida:** Categorical Crossentropy.
+- **Épocas:** 15.
+- **Batch size:** 32.
+
+
+### 5. Evaluación
+Se evaluó el modelo con las siguientes métricas:
+- **Accuracy:** 86.51% (entrenamiento) / 78.42% (validación/entrenamiento).
+- **Loss:** 0.34 (entrenamiento) / 0.54 (validación).
+- Análisis de curvas de aprendizaje para detectar overfitting.
+- Matriz de confusión para identificar clases con mayor confusión.
+
+
+  ### 6. Despliegue
+El modelo entrenado se guardó en formato `.h5`, listo para ser desplegado.

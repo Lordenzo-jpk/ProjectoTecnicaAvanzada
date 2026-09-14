@@ -31,7 +31,7 @@ Para cumplir con la variante propuesta en este proyecto y adaptarlo a la realida
 3. Tizón Temprano (Tomato_Early_blight)
 4. Tizón Tardío (Tomato_Late_blight)
  
-## Preparación y Análisis Exploratorio de Datos (EDA) (Descripcion de lo que se hara)
+## Preparación y Análisis Exploratorio de Datos (EDA)
 ### Descripción del dataset
 Se utilizó el dataset **PlantVillage**, que contiene imágenes de hojas de plantas clasificadas por tipo de cultivo y enfermedad. Para este proyecto se definió una **variante enfocada exclusivamente en el cultivo de tomate**, seleccionando 4 clases críticas:
 
@@ -42,6 +42,10 @@ Se utilizó el dataset **PlantVillage**, que contiene imágenes de hojas de plan
 | Tomato_Early_blight | Tizón temprano | 1.000 |
 | Tomato_Late_blight | Tizón tardío | 1.909 |
 | **Total** | | **6.627** |
+
+**Muestra visual de las clases:**
+A continuación se presentan ejemplos reales extraídos del dataset para identificar los patrones de cada patología:
+![Muestra de hojas](<img width="1857" height="491" alt="image" src="https://github.com/user-attachments/assets/592cbc85-e8a1-4ec5-9d0f-9a812378f725" />)
 
 ### Distribución de clases
 Se realizó un gráfico de barras para visualizar la distribución de imágenes por clase. Se observa que el dataset está **moderadamente balanceado**, aunque la clase *Early_blight* tiene aproximadamente la mitad de imágenes que *Bacterial_spot*. Esta diferencia no es lo suficientemente crítica como para requerir técnicas de balanceo, pero se tuvo en cuenta al interpretar las métricas por clase.

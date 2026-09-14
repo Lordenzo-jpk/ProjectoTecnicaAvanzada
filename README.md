@@ -45,7 +45,7 @@ Se utilizó el dataset **PlantVillage**, que contiene imágenes de hojas de plan
 
 **Muestra visual de las clases:**
 A continuación se presentan ejemplos reales extraídos del dataset para identificar los patrones de cada patología:
-![Muestra de hojas]<img width="1857" height="491" alt="Captura de pantalla 2026-09-13 214506" src="https://github.com/user-attachments/assets/5fb41668-f610-4f02-aea9-a20c5980b9b5" />
+<img width="1489" height="395" alt="descarga (4)" src="https://github.com/user-attachments/assets/55fac0be-7896-4165-a774-48914321f538" />
 
 ### Distribución de clases
 Se realizó un gráfico de barras para visualizar la distribución de imágenes por clase. Se observa que el dataset está **moderadamente balanceado**, aunque la clase *Early_blight* tiene aproximadamente la mitad de imágenes que *Bacterial_spot*. Esta diferencia no es lo suficientemente crítica como para requerir técnicas de balanceo, pero se tuvo en cuenta al interpretar las métricas por clase.
@@ -97,9 +97,17 @@ Se implementó un Perceptrón Multicapa (MLP) con la siguiente arquitectura:
 Se evaluó el modelo con las siguientes métricas:
 - **Accuracy:** 86.51% (entrenamiento) / 78.42% (validación/entrenamiento).
 - **Loss:** 0.34 (entrenamiento) / 0.54 (validación).
-- Análisis de curvas de aprendizaje para detectar overfitting.
-- Matriz de confusión para identificar clases con mayor confusión.
+*   **Análisis de curvas de aprendizaje:** Se graficó la evolución del *Accuracy* y el *Loss* durante las 15 épocas. Como se observa a continuación, las curvas de validación (verde/rojo) logran estabilizarse y seguir de cerca a las de entrenamiento (azul), lo que indica una convergencia adecuada y descarta la presencia de un *overfitting* severo en esta configuración.
 
+<img width="630" height="470" alt="descarga (1)" src="https://github.com/user-attachments/assets/1e6b9dd0-830e-481a-b12c-edeb2e187b97" />
+
+*   **Matriz de confusión:** El siguiente mapa de calor detalla el rendimiento específico por clase. El modelo demuestra una alta robustez al clasificar *Tomato_Bacterial_spot* y *Tomato_Late_blight* (los valores más altos en la diagonal). Las equivocaciones se concentran en una ligera confusión cruzada entre *Tomato_Early_blight* y *Tomato_healthy*.
+
+<img width="722" height="577" alt="descarga (2)" src="https://github.com/user-attachments/assets/dd76fd88-3986-4189-b851-d1bd82f3dcee" />
+
+*   **Contraste empírico de predicciones:** Para comprender las limitaciones del modelo, se extrajeron muestras de la validación contrastando un acierto directo frente a un fallo (falso positivo/negativo). Esto permite evidenciar visualmente cómo la similitud en ciertos bordes necróticos o la iluminación de la fotografía pueden inducir al error de la red neuronal.
+
+<img width="796" height="390" alt="descarga (3)" src="https://github.com/user-attachments/assets/c5ec68f2-bcca-4a6b-b99c-ec1da4986898" />
 
   ### 6. Despliegue
 El modelo entrenado se guardó en formato `.h5`, listo para ser desplegado.

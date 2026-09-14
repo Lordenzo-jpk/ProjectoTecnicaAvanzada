@@ -45,7 +45,7 @@ Se utilizó el dataset **PlantVillage**, que contiene imágenes de hojas de plan
 
 **Muestra visual de las clases:**
 A continuación se presentan ejemplos reales extraídos del dataset para identificar los patrones de cada patología:
-![Muestra de hojas](<img width="1857" height="491" alt="image" src="https://github.com/user-attachments/assets/592cbc85-e8a1-4ec5-9d0f-9a812378f725" />)
+![Muestra de hojas]<img width="1857" height="491" alt="Captura de pantalla 2026-09-13 214506" src="https://github.com/user-attachments/assets/5fb41668-f610-4f02-aea9-a20c5980b9b5" />
 
 ### Distribución de clases
 Se realizó un gráfico de barras para visualizar la distribución de imágenes por clase. Se observa que el dataset está **moderadamente balanceado**, aunque la clase *Early_blight* tiene aproximadamente la mitad de imágenes que *Bacterial_spot*. Esta diferencia no es lo suficientemente crítica como para requerir técnicas de balanceo, pero se tuvo en cuenta al interpretar las métricas por clase.

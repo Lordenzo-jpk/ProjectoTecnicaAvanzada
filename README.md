@@ -1,5 +1,18 @@
 # Evaluación Parcial N°1 - Clasificación de Imágenes con MLP
 
+## Detalles de la Asignatura
+* **Institución:** Instituto Superior Duoc UC
+* **Asignatura:** Técnicas Avanzadas de Machine Learning
+* **Sección:** 002D
+* **Docente:** Mauro Mercado Fleiter
+
+## Equipo de Desarrollo (Integrantes)
+* Kevin Fuenzalida
+* Lorenzo Gutiérrez
+* Sebastián Novoa
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ddwAbysCvuYw3u2M7kdC4_esEStsZoK_)
+
 ## Descripción del problema de negocio
 La detección temprana de enfermedades en cultivos frutales es crucial para evitar pérdidas económicas en el sector agrícola. Actualmente, los agricultores dependen de la inspección visual, un proceso lento y que requiere experiencia especializada, lo que retrasa el diagnóstico y provoca daños irreversibles en los cultivos en sus falsos positivos.
 
